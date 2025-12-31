@@ -15,7 +15,9 @@ def risk_category(risk: float) -> str:
 
 @router.post("/", response_model=CareerOutput)
 def analyze_career(data: CareerInput):
+    print(data)
     risk = predict_risk(data.dict())
+    print(risk)
     category = risk_category(risk)
 
     return {
